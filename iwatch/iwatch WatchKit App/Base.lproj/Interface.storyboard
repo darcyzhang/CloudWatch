@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+    </dependencies>
+    <scenes>
+        <!--天猫-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller title="天猫" id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <group width="1" alignment="left" id="4SL-hC-T9i">
+                            <items>
+                                <button width="70" alignment="right" verticalAlignment="bottom" title="列表" id="Soa-wS-YMn">
+                                    <connections>
+                                        <action selector="miaoshaButtonPressed:" destination="AgC-eL-Hgc" id="Nmf-iu-kpG"/>
+                                    </connections>
+                                </button>
+                                <button width="65" alignment="left" verticalAlignment="bottom" title="分页" id="fUj-Pg-9d6">
+                                    <connections>
+                                        <action selector="wuseButtonPressed:" destination="AgC-eL-Hgc" id="Gba-YA-KLY"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" verticalAlignment="center" id="9lb-Ok-yrm">
+                            <items>
+                                <button width="1" alignment="left" title="设置" id="5Pi-bc-APp">
+                                    <connections>
+                                        <action selector="recommendButtonPressed:" destination="AgC-eL-Hgc" id="Ed2-Go-1u2"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" verticalAlignment="bottom" id="f9H-2H-C1a">
+                            <items>
+                                <button width="1" alignment="center" title="Notify" id="9Y6-ky-Je2">
+                                    <connections>
+                                        <action selector="notifyButtonPressed:" destination="AgC-eL-Hgc" id="a3r-g9-d1G"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="78" y="213"/>
+        </scene>
+        <!--今日推荐-->
+        <scene sceneID="tac-p2-M1p">
+            <objects>
+                <controller identifier="tmall_recommend" title="今日推荐" id="26N-KN-NzO" customClass="RecommendInterfaceController">
+                    <items>
+                        <switch width="1" alignment="left" value="YES" title="推荐" id="qoT-2z-ydG">
+                            <connections>
+                                <action selector="switchAction:" destination="26N-KN-NzO" id="GU1-QJ-Bal"/>
+                            </connections>
+                        </switch>
+                        <label alignment="left" verticalAlignment="bottom" text="每日为您推荐" id="T97-jO-gwL"/>
+                        <slider width="1" alignment="left" verticalAlignment="center" value="1" maximum="3" steps="3" id="JPh-Ru-kYh">
+                            <connections>
+                                <action selector="sliderAction:" destination="26N-KN-NzO" id="SXX-TT-01F"/>
+                            </connections>
+                        </slider>
+                    </items>
+                    <connections>
+                        <outlet property="label" destination="T97-jO-gwL" id="Bac-yO-K0R"/>
+                        <outlet property="switchButton" destination="qoT-2z-ydG" id="7PF-9N-g3r"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="78" y="430"/>
+        </scene>
+        <!--商品详情-->
+        <scene sceneID="S0i-K4-lay">
+            <objects>
+                <controller identifier="tmall_detail" title="商品详情" id="thb-1s-5qH" customClass="DetailInterfaceController">
+                    <items>
+                        <label height="30.5" alignment="left" text="title" id="UvS-UJ-nh3"/>
+                        <imageView alignment="left" id="34u-t1-Ira"/>
+                    </items>
+                    <menu key="menu" id="dt0-EJ-dUk">
+                        <items>
+                            <menuItem title="购物车" icon="add" id="csN-Ii-fXP"/>
+                            <menuItem title="购买" icon="accept" id="V3e-qm-tYX"/>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="image" destination="34u-t1-Ira" id="cQ3-rt-tsl"/>
+                        <outlet property="titleLabel" destination="UvS-UJ-nh3" id="uYq-J1-FMe"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="237" y="437"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="rWg-tl-q8t">
+            <objects>
+                <notificationController id="vUk-Ay-Neg">
+                    <items>
+                        <label alignment="left" text="大水通知测试" id="Qov-Zd-b0z"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" id="vqI-0E-PhD"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="Qov-Zd-b0z" id="dWK-2o-1kL"/>
+                        <segue destination="Bd4-be-s2u" kind="relationship" relationship="dynamicNotificationInterface" id="Qsy-uE-fYd"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="78" y="681"/>
+        </scene>
+        <!--Glance Interface Controller-->
+        <scene sceneID="NEg-0p-SrO">
+            <objects>
+                <glanceController id="BXa-s8-EP6">
+                    <items>
+                        <group alignment="left" id="MZi-ig-xZL">
+                            <items>
+                                <label width="112.5" height="39.5" alignment="center" text="买别墅   开豪车 养番狗   写代码" numberOfLines="2" id="py2-PS-Fsc"/>
+                            </items>
+                        </group>
+                        <group alignment="left" backgroundImage="image2.png" id="vRm-jg-uBV">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="1：1全尺寸亚洲象全场包邮，只要998" numberOfLines="0" id="QWb-Mg-QOf">
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                </glanceController>
+            </objects>
+            <point key="canvasLocation" x="257" y="676"/>
+        </scene>
+        <!--分页-->
+        <scene sceneID="Gn7-4K-xJl">
+            <objects>
+                <controller identifier="tmall_wuse" title="分页" id="za1-Vk-lDm" customClass="WuseInterfaceController">
+                    <items>
+                        <label height="30.5" alignment="left" text="title" id="77T-C3-yQf"/>
+                        <group width="1" alignment="left" id="XpH-0d-ilh">
+                            <items>
+                                <imageView alignment="left" id="NBl-rz-Qiu"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="image" destination="NBl-rz-Qiu" id="wvf-Xu-4Hb"/>
+                        <outlet property="titleLabel" destination="77T-C3-yQf" id="qWh-0d-5jv"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="446" y="204"/>
+        </scene>
+        <!--列表-->
+        <scene sceneID="g02-kk-e5R">
+            <objects>
+                <controller identifier="tmall_miaosha" title="列表" id="HhF-Qg-fNR" customClass="MiaoInterfaceController">
+                    <items>
+                        <table alignment="left" id="bGe-a3-CUY">
+                            <items>
+                                <tableRow identifier="mainRowType" id="0OV-WN-iux" customClass="MiaoRowController">
+                                    <group key="rootItem" width="1" alignment="left" id="YJf-fs-7fS">
+                                        <items>
+                                            <imageView width="50" height="50" alignment="left" id="JIM-kp-Oem"/>
+                                            <label width="80" height="20" alignment="right" verticalAlignment="center" text="Label" id="ztw-Bo-TzK"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="image" destination="JIM-kp-Oem" id="sDZ-TB-EBr"/>
+                                        <outlet property="label" destination="ztw-Bo-TzK" id="W9J-qa-T9R"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="bGe-a3-CUY" id="QZs-2v-lnf"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="408" y="437"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="gdY-Ef-dOg">
+            <objects>
+                <controller id="Bd4-be-s2u" customClass="NotificationController">
+                    <items>
+                        <label alignment="left" text="大水通知测试" id="7AW-KO-fJ4"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="430" y="676"/>
+        </scene>
+    </scenes>
+</document>
